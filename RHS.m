@@ -1,0 +1,13 @@
+function y=RHS(N,A,U,F,S,qW,qP,LPminus,LPplus,LP,epsilon,bcA,bcU,ecA,ecU,Beta,a0,rho, currentUpper, nextLower, currentLower, previousUpper,iM,iJ,LPder)
+    %
+    %INPUTS:
+    %
+    %N - the number of elements
+    y=-iM*iJ*derivativeIntegral2(N,A,U,F,qW,qP,LPminus,LPplus,LP,epsilon) ...
+        -iJ*iM*fluxTerm(N,A,U,F,bcA,bcU,ecA,ecU,Beta,a0,rho, currentUpper, nextLower, currentLower, previousUpper)...
+        +iM*generalIntegral2(N,A,U,S,qW,qP,LP,LP);
+
+%     y=iM*generalIntegral2(N,A,U,F,qW,qP,LP,LPder) ...
+%         -iJ*iM*fluxTerm(N,A,U,F,bcA,bcU,Beta,a0,rho, currentUpper, nextLower, currentLower, previousUpper)...
+%         +iM*generalIntegral2(N,A,U,S,qW,qP,LP,LP);
+end
